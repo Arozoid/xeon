@@ -3,7 +3,7 @@ import json
 import git
 import requests
 from os import system as run
-from os import path
+from os import path, listdir
 
 @click.group()
 def package_manager():
@@ -254,6 +254,12 @@ def uninstall(package_name):
     if path.isfile(f"/tmp/xeondata/{package_name}.txt"):
         if input(f"Proceed with the uninstallation of '{package_name}'? [Y/n] ") in ["y", "Y", ""]:
             click.echo(f':: Removing {package_name}...')
+            for file in listdir("/tmp/xeondata"):
+                with open(f"/tmp/xeondata/{file}.txt", "r") as f:
+                    data = f.read()
+
+                if package_name in data["conflicts"]:
+                    click.echo(f"error: {package_name} is a dependency of {file}")
             with open(f"/tmp/xeondata/{package_name}.txt", "r") as f:
                 data = f.read()
             
