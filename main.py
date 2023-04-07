@@ -15,10 +15,10 @@ def package_manager():
 def install(package_name):
     click.echo(":: Syncronizing databases...")
     try:
-        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
     except git.exc.GitCommandError:
         run("rm -rf /tmp/xeondb")
-        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
     click.echo("database updated\n")
     click.echo("collecting data..")
     with open("/tmp/xeondb/packages.txt", "r") as f:
@@ -114,10 +114,10 @@ def add(name, link):
     if input(f"Proceed with the addition of '{name}' to the database? [Y/n] ") in ["y", "Y", ""]:
         pwd = input("Add a password (Secures uploaded packages from anyone updating package): ")
         try:
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         except git.exc.GitCommandError:
             run("rm -rf /tmp/xeondb")
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         click.echo(f':: Adding {name} to database...')
         run(f"echo '{pwd} {name} {link}' >> /tmp/xeondb/packages.txt")
         click.echo("added to local db")
@@ -137,10 +137,10 @@ def add(name, link):
 def remove(name):
     if input(f"Proceed with the removal of '{name}' from the database? [Y/n] ") in ["y", "Y", ""]:
         try:
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         except git.exc.GitCommandError:
             run("rm -rf /tmp/xeondb")
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         with open("/tmp/xeondb/packages.txt", "r") as f:
             for line in f:
                 if name in line:
@@ -181,10 +181,10 @@ def remove(name):
 def update(name, link):
     if input(f"Proceed with the update of '{name}' in the database? [Y/n] ") in ["y", "Y", ""]:
         try:
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         except git.exc.GitCommandError:
             run("rm -rf /tmp/xeondb")
-            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+            repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
         with open("/tmp/xeondb/packages.txt", "r") as f:
             for line in f:
                 if name in line:
