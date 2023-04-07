@@ -2,6 +2,7 @@ import click
 import json
 import git
 import requests
+import requests_cache
 from os import system as run
 from os import path, listdir
 
@@ -226,10 +227,10 @@ def search(query):
     name = []
     click.echo(":: Syncronizing database..")
     try:
-        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
     except git.exc.GitCommandError:
         run("rm -rf /tmp/xeondb")
-        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
+        repo = git.Repo.clone_from('https://Arozoid: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@github.com/Arozoid/xeonpkg.git', '/tmp/xeondb', branch='main')
     click.echo("database updated\n")
     with open("/tmp/xeondb/packages.txt", "r") as f:
         for line in f:
